@@ -54,9 +54,9 @@ public class YAMLConfigProvider<T> implements ConfigProvider<T> {
 
     /**
      * {@inheritDoc}
-     * 
+     *
      * @see org.audit4j.core.ConfigProvider#readConfig(java.lang.String)
-     * 
+     *
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -71,10 +71,10 @@ public class YAMLConfigProvider<T> implements ConfigProvider<T> {
             throw new ConfigurationException("Configuration Exception", "CONF_002", e);
         }
     }
-    
+
     /**
      * {@inheritDoc}
-     * 
+     *
      * @see org.audit4j.core.ConfigProvider#readConfig(java.io.InputStream)
      *
      */
@@ -93,7 +93,7 @@ public class YAMLConfigProvider<T> implements ConfigProvider<T> {
 
     /**
      * {@inheritDoc}
-     * 
+     *
      */
     @Override
     public void generateConfig(T config, String filePath) throws ConfigurationException {
@@ -104,9 +104,8 @@ public class YAMLConfigProvider<T> implements ConfigProvider<T> {
             writer.write(Configuration.DEFAULT);
             writer.close();
         } catch (IOException e) {
-            throw new ConfigurationException("Configuration Exception", "CONF_002");
+            throw new ConfigurationException("Configuration Exception", "CONF_002", e);
         }
     }
-
 
 }
