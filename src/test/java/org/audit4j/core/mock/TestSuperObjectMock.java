@@ -1,4 +1,4 @@
-package org.audit4j.core.Mock;
+package org.audit4j.core.mock;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -8,9 +8,9 @@ import java.util.Enumeration;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import org.audit4j.core.Mock.ClassAnnotationMock;
 import org.audit4j.core.extra.scannotation.AnnotationDB;
 import org.audit4j.core.extra.scannotation.ClasspathUrlFinder;
+import org.audit4j.core.mock.ClassAnnotationMock;
 import org.audit4j.core.util.Log;
 import org.audit4j.core.util.StopWatch;
 import org.junit.Before;

@@ -1,4 +1,4 @@
-package org.audit4j.core.Mock;
+package org.audit4j.core.mock;
 
 
 public class NullAnnotationMock {
