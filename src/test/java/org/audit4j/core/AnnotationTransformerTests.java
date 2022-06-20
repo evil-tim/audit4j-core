@@ -4,10 +4,10 @@ import static org.junit.Assert.assertNull;
 
 import java.lang.reflect.Method;
 
-import org.audit4j.core.Mock.ClassAnnotationMock;
-import org.audit4j.core.Mock.MethodAnnotationMock;
 import org.audit4j.core.dto.AnnotationAuditEvent;
 import org.audit4j.core.dto.AuditEvent;
+import org.audit4j.core.mock.ClassAnnotationMock;
+import org.audit4j.core.mock.MethodAnnotationMock;
 import org.audit4j.core.util.Log;
 import org.audit4j.core.util.StopWatch;
 import org.junit.Test;

@@ -5,7 +5,7 @@ import java.lang.reflect.Method;
 import org.audit4j.core.AuditManager;
 import org.audit4j.core.Configuration;
 import org.audit4j.core.IAuditManager;
-import org.audit4j.core.Mock.MethodAnnotationMock;
+import org.audit4j.core.mock.MethodAnnotationMock;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

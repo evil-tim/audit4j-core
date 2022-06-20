@@ -6,9 +6,9 @@ import java.util.List;
 import org.audit4j.core.Audit4jTestBase;
 import org.audit4j.core.ObjectSerializer;
 import org.audit4j.core.ObjectToFieldsSerializer;
-import org.audit4j.core.Mock.TestChildObjectMock;
-import org.audit4j.core.Mock.TestSuperObjectMock;
 import org.audit4j.core.dto.Field;
+import org.audit4j.core.mock.TestChildObjectMock;
+import org.audit4j.core.mock.TestSuperObjectMock;
 import org.junit.Test;
 
 public class ObjectToFieldsSerializerTest extends Audit4jTestBase {

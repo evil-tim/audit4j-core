@@ -4,9 +4,9 @@ import java.io.File;
 import java.lang.reflect.Method;
 
 import org.audit4j.core.Audit4jTestBase;
-import org.audit4j.core.Mock.ClassAnnotationMock;
-import org.audit4j.core.Mock.NullAnnotationMock;
 import org.audit4j.core.dto.AnnotationAuditEvent;
+import org.audit4j.core.mock.ClassAnnotationMock;
+import org.audit4j.core.mock.NullAnnotationMock;
 
 /**
  * The Class IntTestBase.

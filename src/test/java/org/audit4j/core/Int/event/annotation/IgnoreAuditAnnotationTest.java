@@ -5,7 +5,7 @@ import java.lang.reflect.Method;
 import org.audit4j.core.AuditManager;
 import org.audit4j.core.Configuration;
 import org.audit4j.core.IAuditManager;
-import org.audit4j.core.Mock.ClassAnnotationMock;
+import org.audit4j.core.mock.ClassAnnotationMock;
 import org.audit4j.core.util.Log;
 import org.audit4j.core.util.StopWatch;
 import org.junit.After;

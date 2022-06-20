@@ -1,4 +1,4 @@
-package org.audit4j.core.Mock;
+package org.audit4j.core.mock;
 
 import org.audit4j.core.MetaData;
 
