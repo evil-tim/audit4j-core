@@ -1,4 +1,4 @@
-package org.audit4j.core.Int.event.annotation;
+package org.audit4j.core.integ.event.annotation;
 
 import java.lang.reflect.Method;
 

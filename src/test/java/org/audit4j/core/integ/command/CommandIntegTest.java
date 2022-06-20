@@ -1,4 +1,4 @@
-package org.audit4j.core.Int.command;
+package org.audit4j.core.integ.command;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -9,17 +9,17 @@ import org.audit4j.core.command.impl.MetadataCommand;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class CommandIntTest {
+public class CommandIntegTest {
 
     @Test
-    public void testMetadataCommand(){
+    public void testMetadataCommand() {
         CommandProcessor processor = CommandProcessor.getInstance();
         Map<String, String> commands = new HashMap<String, String>();
         commands.put("-metadata", "async");
-        
+
         processor.process(commands);
-        
-        MetadataCommand command =  (MetadataCommand) PreConfigurationContext.getCommandByName("-metadata");
+
+        MetadataCommand command = (MetadataCommand) PreConfigurationContext.getCommandByName("-metadata");
         Assert.assertTrue(command.isAsync());
     }
 }

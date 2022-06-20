@@ -1,4 +1,4 @@
-package org.audit4j.core.Int;
+package org.audit4j.core.integ;
 
 import java.io.File;
 import java.lang.reflect.Method;
@@ -13,7 +13,7 @@ import org.audit4j.core.mock.NullAnnotationMock;
  *
  * @author <a href="mailto:janith3000@gmail.com">Janith Bandara</a>
  */
-public class IntTestBase extends Audit4jTestBase {
+public class IntegTestBase extends Audit4jTestBase {
     
     /**
      * Gets the sample annotation event.

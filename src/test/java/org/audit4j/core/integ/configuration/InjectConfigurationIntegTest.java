@@ -1,12 +1,12 @@
-package org.audit4j.core.Int.configuration;
+package org.audit4j.core.integ.configuration;
 
 import org.audit4j.core.AuditManager;
 import org.audit4j.core.Configuration;
-import org.audit4j.core.Int.IntTestBase;
+import org.audit4j.core.integ.IntegTestBase;
 import org.junit.After;
 import org.junit.Test;
 
-public class InjectConfigurationIntTest extends IntTestBase{
+public class InjectConfigurationIntegTest extends IntegTestBase{
 
     @Test
     public void testStartWithConfiguration() {

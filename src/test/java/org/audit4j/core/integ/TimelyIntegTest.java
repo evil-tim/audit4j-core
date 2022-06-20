@@ -1,7 +1,7 @@
-package org.audit4j.core.Int;
+package org.audit4j.core.integ;
 
 
-public abstract class TimelyIntTest extends IntTestBase {
+public abstract class TimelyIntegTest extends IntegTestBase {
     
     /**
      * Before.

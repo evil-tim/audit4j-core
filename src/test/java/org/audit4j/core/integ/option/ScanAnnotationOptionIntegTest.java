@@ -1,4 +1,4 @@
-package org.audit4j.core.Int.option;
+package org.audit4j.core.integ.option;
 
 import static org.junit.Assert.assertTrue;
 
@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit;
 import org.audit4j.core.AuditManager;
 import org.audit4j.core.Configuration;
 import org.audit4j.core.IAuditManager;
-import org.audit4j.core.Int.IntTestBase;
+import org.audit4j.core.integ.IntegTestBase;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Ignore;
@@ -15,7 +15,7 @@ import org.junit.Test;
 
 //test class without @Test method put it in ignore until there is a test
 @Ignore
-public class ScanAnnotationOptionIntTest extends IntTestBase {
+public class ScanAnnotationOptionIntegTest extends IntegTestBase {
 
     @Before
     public void before() {
