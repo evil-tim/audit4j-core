@@ -1,4 +1,4 @@
-package org.audit4j.core.Int;
+package org.audit4j.core.integ;
 
 import java.util.ArrayList;
 import java.util.List;

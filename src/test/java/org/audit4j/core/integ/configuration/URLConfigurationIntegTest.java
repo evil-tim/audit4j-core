@@ -1,4 +1,4 @@
-package org.audit4j.core.Int.configuration;
+package org.audit4j.core.integ.configuration;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -6,14 +6,14 @@ import java.io.IOException;
 
 import org.audit4j.core.AuditManager;
 import org.audit4j.core.Configuration;
-import org.audit4j.core.Int.IntTestBase;
+import org.audit4j.core.integ.IntegTestBase;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import com.esotericsoftware.yamlbeans.YamlWriter;
 
-public class URLConfigurationIntTest extends IntTestBase {
+public class URLConfigurationIntegTest extends IntegTestBase {
 
     private String configFileLocation;
 
