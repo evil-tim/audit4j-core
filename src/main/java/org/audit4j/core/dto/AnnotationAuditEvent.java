@@ -22,9 +22,9 @@ import java.lang.reflect.Method;
 
 /**
  * The Class AnnotationAuditEvent.
- * 
+ *
  * @author <a href="mailto:janith3000@gmail.com">Janith Bandara</a>
- * 
+ *
  * @since 1.0.0
  */
 public class AnnotationAuditEvent extends AuditEvent {
@@ -41,8 +41,11 @@ public class AnnotationAuditEvent extends AuditEvent {
     /** The args. */
     Object[] args;
 
-    /** The return of hte method, may be null */
+    /** The return of the method, may be null */
     private Object methodCallResult;
+
+    /** The thrown throwable of the method, may be null */
+    private Throwable methodCallThrowable;
 
     /**
      * Instantiates a new annotation audit event.
@@ -53,13 +56,10 @@ public class AnnotationAuditEvent extends AuditEvent {
 
     /**
      * Instantiates a new annotation audit event.
-     * 
-     * @param clazz
-     *            the clazz
-     * @param method
-     *            the method
-     * @param args
-     *            the args
+     *
+     * @param clazz  the clazz
+     * @param method the method
+     * @param args   the args
      */
     public AnnotationAuditEvent(Class<?> clazz, Method method, Object[] args) {
         super();
@@ -68,14 +68,15 @@ public class AnnotationAuditEvent extends AuditEvent {
         this.args = args;
     }
 
-    public AnnotationAuditEvent(Class<?> clazz, Method method, Object[] args, Object methodCallResult) {
+    public AnnotationAuditEvent(Class<?> clazz, Method method, Object[] args, Object methodCallResult, Throwable methodCallThrowable) {
         this(clazz, method, args);
         this.methodCallResult = methodCallResult;
+        this.methodCallThrowable = methodCallThrowable;
     }
 
     /**
      * Gets the clazz.
-     * 
+     *
      * @return the clazz
      */
     public Class<?> getClazz() {
@@ -84,9 +85,8 @@ public class AnnotationAuditEvent extends AuditEvent {
 
     /**
      * Sets the clazz.
-     * 
-     * @param clazz
-     *            the new clazz
+     *
+     * @param clazz the new clazz
      */
     public void setClazz(Class<?> clazz) {
         this.clazz = clazz;
@@ -94,7 +94,7 @@ public class AnnotationAuditEvent extends AuditEvent {
 
     /**
      * Gets the method.
-     * 
+     *
      * @return the method
      */
     public Method getMethod() {
@@ -103,9 +103,8 @@ public class AnnotationAuditEvent extends AuditEvent {
 
     /**
      * Sets the method.
-     * 
-     * @param method
-     *            the new method
+     *
+     * @param method the new method
      */
     public void setMethod(Method method) {
         this.method = method;
@@ -113,7 +112,7 @@ public class AnnotationAuditEvent extends AuditEvent {
 
     /**
      * Gets the args.
-     * 
+     *
      * @return the args
      */
     public Object[] getArgs() {
@@ -122,21 +121,26 @@ public class AnnotationAuditEvent extends AuditEvent {
 
     /**
      * Sets the args.
-     * 
-     * @param args
-     *            the new args
+     *
+     * @param args the new args
      */
     public void setArgs(Object[] args) {
         this.args = args;
     }
 
     /**
-     * Gets the return object of method call. May be {@code null} in the case the method was {@code void} or in the case
-     * the @Before aspect was used and therefore no return type was available.
+     * Gets the return object of method call. May be {@code null} in the case the
+     * method was {@code void} or in the case the @Before aspect was used and
+     * therefore no return type was available.
      *
      * @return the {@code Object} returned by the audited method, if captured
      */
     public Object getMethodCallResult() {
         return methodCallResult;
     }
+
+    public Throwable getMethodCallThrowable() {
+        return methodCallThrowable;
+    }
+
 }
