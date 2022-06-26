@@ -38,5 +38,6 @@ module audit4j.core {
     exports org.audit4j.core.handler;
     exports org.audit4j.core.jmx;
     exports org.audit4j.core.layout;
+    exports org.audit4j.core.util;
     exports org.audit4j.core.util.annotation;
 }
