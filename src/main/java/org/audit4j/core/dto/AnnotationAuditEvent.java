@@ -47,6 +47,8 @@ public class AnnotationAuditEvent extends AuditEvent {
     /** The thrown throwable of the method, may be null */
     private Throwable methodCallThrowable;
 
+    private long elapsedTime = -1;
+
     /**
      * Instantiates a new annotation audit event.
      */
@@ -68,10 +70,12 @@ public class AnnotationAuditEvent extends AuditEvent {
         this.args = args;
     }
 
-    public AnnotationAuditEvent(Class<?> clazz, Method method, Object[] args, Object methodCallResult, Throwable methodCallThrowable) {
+    public AnnotationAuditEvent(Class<?> clazz, Method method, Object[] args, Object methodCallResult, Throwable methodCallThrowable,
+        long elapsedTime) {
         this(clazz, method, args);
         this.methodCallResult = methodCallResult;
         this.methodCallThrowable = methodCallThrowable;
+        this.elapsedTime = elapsedTime;
     }
 
     /**
@@ -141,6 +145,10 @@ public class AnnotationAuditEvent extends AuditEvent {
 
     public Throwable getMethodCallThrowable() {
         return methodCallThrowable;
+    }
+
+    public long getElapsedTime() {
+        return elapsedTime;
     }
 
 }

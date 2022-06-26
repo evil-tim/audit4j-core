@@ -44,6 +44,7 @@ public class DefaultAnnotationTransformer implements AnnotationTransformer<Audit
 
     private static final String FIELD_THROWN = "thrown";
     private static final String FIELD_RESULT = "result";
+    private static final String FIELD_ELAPSED_TIME = "time";
     private static final String FIELD_ARG_PREFIX = "arg";
     private final static String ACTION = "action";
 
@@ -86,12 +87,15 @@ public class DefaultAnnotationTransformer implements AnnotationTransformer<Audit
             fields.addAll(getFieldsFromArgs(annotationEvent.getMethod(), annotationEvent.getArgs()));
             fields.addAll(getFieldFromResult(annotationEvent.getMethod(), annotationEvent.getMethodCallResult()));
             fields.addAll(getFieldFromThrowable(annotationEvent.getMethodCallThrowable()));
+            if (annotationEvent.getElapsedTime() >= 0) {
+                fields.add(new Field(FIELD_ELAPSED_TIME, String.valueOf(annotationEvent.getElapsedTime())));
+            }
             event.setFields(fields);
 
             // Extract Actor
             String annotationAction = audit.action();
             if (ACTION.equals(annotationAction)) {
-                event.setAction(annotationEvent.getMethod().getName());
+                event.setAction(annotationEvent.getClazz().getName() + " " + annotationEvent.getMethod().getName());
             } else {
                 event.setAction(annotationAction);
             }
@@ -121,8 +125,8 @@ public class DefaultAnnotationTransformer implements AnnotationTransformer<Audit
         final List<Field> fields = new ArrayList<Field>();
 
         int i = 0;
-        String paramName = null;
         for (final Annotation[] annotations : parameterAnnotations) {
+            String paramName = null;
             final Object object = params[i++];
             boolean ignoreFlag = false;
             DeIdentify deidentify = null;
@@ -140,16 +144,12 @@ public class DefaultAnnotationTransformer implements AnnotationTransformer<Audit
                 }
             }
 
-            if (ignoreFlag) {
-
-            } else {
+            if (!ignoreFlag) {
                 if (null == paramName) {
                     paramName = FIELD_ARG_PREFIX + i;
                 }
                 serializer.serialize(fields, object, paramName, deidentify);
             }
-
-            paramName = null;
         }
         return fields;
     }
