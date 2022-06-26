@@ -23,23 +23,23 @@ import java.net.UnknownHostException;
 import org.audit4j.core.CoreConstants;
 import org.audit4j.core.exception.Audit4jRuntimeException;
 import org.audit4j.core.exception.InitializationException;
-import org.audit4j.core.util.annotation.Beeta;
 
 /**
  * The Class FTPArchiveJob.
  *
  * @author <a href="mailto:janith3000@gmail.com">Janith Bandara</a>
  */
-@Beeta
 public class FTPArchiveJob extends AbstractArchiveJob {
 
     /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 8651767095397282923L;
-  
+
     /** The client arguments. */
     String[] clientArguments;
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     *
      * @see org.audit4j.core.handler.file.ArchiveJob#archive()
      */
     @Override
@@ -52,7 +52,9 @@ public class FTPArchiveJob extends AbstractArchiveJob {
         }
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     *
      * @see org.audit4j.core.Initializable#init()
      */
     @Override
@@ -60,7 +62,9 @@ public class FTPArchiveJob extends AbstractArchiveJob {
         clientArguments = super.archiveOptions.split(CoreConstants.SEMI_COLON);
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     *
      * @see org.audit4j.core.Initializable#stop()
      */
     @Override

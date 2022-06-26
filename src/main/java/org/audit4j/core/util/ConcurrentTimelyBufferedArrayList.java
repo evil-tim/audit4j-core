@@ -27,20 +27,15 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-import org.audit4j.core.util.annotation.ThreadSafe;
-
 /**
  * The Class CircularTimelyBufferedArrayList.
- * 
- * @param <E>
- *            the element type
+ *
+ * @param <E> the element type
  * @author <a href="mailto:janith3000@gmail.com">Janith Bandara</a>
- * 
+ *
  * @since 2.3.0
  */
-@ThreadSafe
-public class ConcurrentTimelyBufferedArrayList<E> extends AbstractList<E> implements RandomAccess, Serializable,
-        Cloneable {
+public class ConcurrentTimelyBufferedArrayList<E> extends AbstractList<E> implements RandomAccess, Serializable, Cloneable {
 
     /** asdas. */
     private static final long serialVersionUID = 8870953621895891238L;
@@ -50,20 +45,18 @@ public class ConcurrentTimelyBufferedArrayList<E> extends AbstractList<E> implem
 
     /** The listener. */
     private final BufferedListener<E> listener;
-    
+
     /** The consumer. */
     ScheduleConsumer consumer;
-    
+
     /** The time. */
     Timer time;
 
     /**
      * Instantiates a new circular timely buffered array list.
-     * 
-     * @param timeInMills
-     *            the time in mills
-     * @param listener
-     *            the listener
+     *
+     * @param timeInMills the time in mills
+     * @param listener    the listener
      */
     public ConcurrentTimelyBufferedArrayList(final int timeInMills, final BufferedListener<E> listener) {
         this.listener = listener;
@@ -74,7 +67,7 @@ public class ConcurrentTimelyBufferedArrayList<E> extends AbstractList<E> implem
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see java.util.AbstractList#get(int)
      */
     @Override
@@ -84,7 +77,7 @@ public class ConcurrentTimelyBufferedArrayList<E> extends AbstractList<E> implem
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see java.util.AbstractList#add(java.lang.Object)
      */
     @Override
@@ -94,7 +87,7 @@ public class ConcurrentTimelyBufferedArrayList<E> extends AbstractList<E> implem
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see java.util.AbstractCollection#size()
      */
     @Override
@@ -104,7 +97,7 @@ public class ConcurrentTimelyBufferedArrayList<E> extends AbstractList<E> implem
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see java.util.AbstractCollection#isEmpty()
      */
     @Override
@@ -120,7 +113,9 @@ public class ConcurrentTimelyBufferedArrayList<E> extends AbstractList<E> implem
         consumer.cancel();
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     *
      * @see java.util.AbstractList#clear()
      */
     @Override
@@ -130,7 +125,7 @@ public class ConcurrentTimelyBufferedArrayList<E> extends AbstractList<E> implem
 
     /**
      * Gets the buffered.
-     * 
+     *
      * @return the buffered
      */
     public List<E> getBuffered() {
@@ -141,14 +136,14 @@ public class ConcurrentTimelyBufferedArrayList<E> extends AbstractList<E> implem
 
     /**
      * The Class ScheduleConsumer.
-     * 
+     *
      * @author <a href="mailto:janith3000@gmail.com">Janith Bandara</a>
      */
     public class ScheduleConsumer extends TimerTask {
 
         /*
          * (non-Javadoc)
-         * 
+         *
          * @see java.util.TimerTask#run()
          */
         @Override
@@ -162,10 +157,10 @@ public class ConcurrentTimelyBufferedArrayList<E> extends AbstractList<E> implem
 
     /**
      * The listener interface for receiving buffered events. The class that is
-     * interested in processing a buffered event implements this interface, and
-     * the object created with that class is registered with a component using
-     * the component's addBufferedListener method. When the buffered event
-     * occurs, that object's appropriate method is invoked.
+     * interested in processing a buffered event implements this interface, and the
+     * object created with that class is registered with a component using the
+     * component's addBufferedListener method. When the buffered event occurs, that
+     * object's appropriate method is invoked.
      *
      * @param <E> the element type
      */
@@ -173,9 +168,8 @@ public class ConcurrentTimelyBufferedArrayList<E> extends AbstractList<E> implem
 
         /**
          * Accept.
-         * 
-         * @param buffered
-         *            list
+         *
+         * @param buffered list
          */
         void accept(List<E> buffered);
     }

@@ -23,16 +23,13 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import org.audit4j.core.util.annotation.ThreadSafe;
-
 /**
  * The Class ConcurrentDateFormatAccess.
- * 
+ *
  * @author <a href="mailto:janith3000@gmail.com">Janith Bandara</a>
- * 
+ *
  * @since 2.3.0
  */
-@ThreadSafe
 public class ConcurrentDateFormatAccess {
 
     /** The format. */
@@ -74,12 +71,10 @@ public class ConcurrentDateFormatAccess {
 
     /**
      * Convert string to date.
-     * 
-     * @param dateString
-     *            the date string
+     *
+     * @param dateString the date string
      * @return the date
-     * @throws ParseException
-     *             the parse exception
+     * @throws ParseException the parse exception
      */
     public Date convertStringToDate(String dateString) throws ParseException {
         return dateFormat.get().parse(dateString);

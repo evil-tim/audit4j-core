@@ -25,14 +25,12 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
 import org.audit4j.core.exception.Audit4jRuntimeException;
-import org.audit4j.core.util.annotation.Beeta;
 
 /**
  * The Class ZIPCompressor.
- * 
+ *
  * @author <a href="mailto:janith3000@gmail.com">Janith Bandara</a>
  */
-@Beeta
 public class ZIPCompressor implements Compressor {
 
     /** The buffer. */
@@ -40,7 +38,7 @@ public class ZIPCompressor implements Compressor {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see
      * org.audit4j.core.handler.file.archive.Compressor#compress(java.io.InputStream
      * , java.io.OutputStream, java.lang.String)

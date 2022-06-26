@@ -27,16 +27,14 @@ import java.util.Date;
 import org.audit4j.core.Initializable;
 import org.audit4j.core.exception.Audit4jRuntimeException;
 import org.audit4j.core.util.AuditUtil;
-import org.audit4j.core.util.annotation.Beeta;
 
 /**
  * The Class ArchiveJob.
- * 
+ *
  * @author <a href="mailto:janith3000@gmail.com">Janith Bandara</a>
- * 
+ *
  * @since 1.0.1
  */
-@Beeta
 public abstract class AbstractArchiveJob implements Initializable, Serializable {
 
     /** The archive date diff. */
@@ -60,7 +58,7 @@ public abstract class AbstractArchiveJob implements Initializable, Serializable 
      * Gets the available files.
      *
      * @param logFileLocation the log file location
-     * @param maxDate the max date
+     * @param maxDate         the max date
      * @return the available files
      */
     protected File[] getAvailableFiles(final String logFileLocation, final Date maxDate) {
@@ -98,9 +96,8 @@ public abstract class AbstractArchiveJob implements Initializable, Serializable 
 
     /**
      * Sets the archive date diff.
-     * 
-     * @param archiveDateDiff
-     *            the new archive date diff
+     *
+     * @param archiveDateDiff the new archive date diff
      */
     public void setArchiveDateDiff(Integer archiveDateDiff) {
         this.archiveDateDiff = archiveDateDiff;
@@ -108,9 +105,8 @@ public abstract class AbstractArchiveJob implements Initializable, Serializable 
 
     /**
      * Sets the path.
-     * 
-     * @param path
-     *            the new path
+     *
+     * @param path the new path
      */
     public void setPath(String path) {
         this.path = path;
@@ -118,9 +114,8 @@ public abstract class AbstractArchiveJob implements Initializable, Serializable 
 
     /**
      * Sets the archive options.
-     * 
-     * @param archiveOptions
-     *            the new archive options
+     *
+     * @param archiveOptions the new archive options
      */
     public void setArchiveOptions(String archiveOptions) {
         this.archiveOptions = archiveOptions;
