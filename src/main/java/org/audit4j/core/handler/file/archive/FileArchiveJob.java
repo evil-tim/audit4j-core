@@ -29,75 +29,73 @@ import java.util.zip.ZipOutputStream;
 import org.audit4j.core.exception.InitializationException;
 import org.audit4j.core.handler.file.FileHandlerUtil;
 import org.audit4j.core.util.Log;
-import org.audit4j.core.util.annotation.Beeta;
 
 /**
  * The Class FileArchiveJob.
  *
  * @author <a href="mailto:janith3000@gmail.com">Janith Bandara</a>
  */
-@Beeta
 public class FileArchiveJob extends AbstractArchiveJob {
 
-	/** The buffer. */
-	byte[] buffer = new byte[1024];
+    /** The buffer. */
+    byte[] buffer = new byte[1024];
 
-	/* (non-Javadoc)
-	 * @see org.audit4j.core.handler.file.ArchiveJob#archive()
-	 */
-	@Override
-	public void archive() {
-		Log.info("Starting local archiving...");
-		
-		String fileName = FileHandlerUtil.generateAuditFileName(FileHandlerUtil.substractDate(new Date(),
-				archiveDateDiff));
-		String archiveFileName = FileHandlerUtil.generateAuditArchiveFileName(FileHandlerUtil.substractDate(new Date(),
-				archiveDateDiff));
+    /*
+     * (non-Javadoc)
+     *
+     * @see org.audit4j.core.handler.file.ArchiveJob#archive()
+     */
+    @Override
+    public void archive() {
+        Log.info("Starting local archiving...");
 
-		String filePath = FileHandlerUtil.generateOutputFilePath(path, fileName);
-		String archivePath = FileHandlerUtil.generateOutputFilePath(path, archiveFileName);
+        String fileName = FileHandlerUtil.generateAuditFileName(FileHandlerUtil.substractDate(new Date(), archiveDateDiff));
+        String archiveFileName = FileHandlerUtil.generateAuditArchiveFileName(FileHandlerUtil.substractDate(new Date(), archiveDateDiff));
 
-		if (FileHandlerUtil.isFileAlreadyExists(filePath)) {
+        String filePath = FileHandlerUtil.generateOutputFilePath(path, fileName);
+        String archivePath = FileHandlerUtil.generateOutputFilePath(path, archiveFileName);
 
-			FileOutputStream fos = null;
-			try {
-				fos = new FileOutputStream(archivePath);
-			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			ZipOutputStream zos = new ZipOutputStream(fos);
-			ZipEntry ze = new ZipEntry(fileName);
-			try {
-				zos.putNextEntry(ze);
+        if (FileHandlerUtil.isFileAlreadyExists(filePath)) {
 
-				FileInputStream in = new FileInputStream(filePath);
+            FileOutputStream fos = null;
+            try {
+                fos = new FileOutputStream(archivePath);
+            } catch (FileNotFoundException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            ZipOutputStream zos = new ZipOutputStream(fos);
+            ZipEntry ze = new ZipEntry(fileName);
+            try {
+                zos.putNextEntry(ze);
 
-				int len;
-				while ((len = in.read(buffer)) > 0) {
-					zos.write(buffer, 0, len);
-				}
+                FileInputStream in = new FileInputStream(filePath);
 
-				in.close();
-				zos.closeEntry();
-				zos.close();
-				System.out.println("Done");
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-	}
+                int len;
+                while ((len = in.read(buffer)) > 0) {
+                    zos.write(buffer, 0, len);
+                }
+
+                in.close();
+                zos.closeEntry();
+                zos.close();
+                System.out.println("Done");
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+    }
 
     @Override
     public void init() throws InitializationException {
         // TODO Auto-generated method stub
-        
+
     }
 
     @Override
     public void stop() {
         // TODO Auto-generated method stub
-        
+
     }
 }

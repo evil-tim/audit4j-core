@@ -24,14 +24,12 @@ import org.audit4j.core.Initializable;
 import org.audit4j.core.schedule.CronTrigger;
 import org.audit4j.core.schedule.Schedulers;
 import org.audit4j.core.util.Log;
-import org.audit4j.core.util.annotation.Beeta;
 
 /**
  * The Class ArchiveManager.
- * 
+ *
  * @author <a href="mailto:janith3000@gmail.com">Janith Bandara</a>
  */
-@Beeta
 public class ArchiveManager implements Initializable {
 
     /** The jobs. */
@@ -42,9 +40,8 @@ public class ArchiveManager implements Initializable {
 
     /**
      * Instantiates a new archive manager.
-     * 
-     * @param archiveEnv
-     *            the archive env
+     *
+     * @param archiveEnv the archive env
      */
     public ArchiveManager(ArchiveEnv archiveEnv) {
         this.archiveEnv = archiveEnv;
@@ -83,9 +80,8 @@ public class ArchiveManager implements Initializable {
 
     /**
      * Extract archive date count.
-     * 
-     * @param datePattern
-     *            the date pattern
+     *
+     * @param datePattern the date pattern
      * @return the integer
      */
     public Integer extractArchiveDateCount(String datePattern) {
@@ -105,7 +101,7 @@ public class ArchiveManager implements Initializable {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see org.audit4j.core.Initializable#stop()
      */
     /**

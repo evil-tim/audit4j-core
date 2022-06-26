@@ -26,14 +26,13 @@ import org.audit4j.core.filter.AuditAnnotationFilter;
 import org.audit4j.core.filter.AuditEventFilter;
 import org.audit4j.core.handler.Handler;
 import org.audit4j.core.layout.Layout;
-import org.audit4j.core.util.annotation.ThreadSafe;
 
 import com.gs.collections.impl.map.mutable.ConcurrentHashMap;
 
 /**
  * Configuration item store. All configuration items which are used by the
  * running components store here. Items loaded by the context.
- * 
+ *
  * <p>
  * Below Items store here:
  * </p>
@@ -44,12 +43,11 @@ import com.gs.collections.impl.map.mutable.ConcurrentHashMap;
  * <li>Meta data, If available</li>
  * <li>Additional configuration properties.</li>
  * </ul>
- * 
+ *
  * @author <a href="mailto:janith3000@gmail.com">Janith Bandara</a>
- * 
+ *
  * @since 2.3.0
  */
-@ThreadSafe
 public final class ConcurrentConfigurationContext {
 
     /** The handlers. */
@@ -72,15 +70,15 @@ public final class ConcurrentConfigurationContext {
 
     /**
      * The run status.
-     * 
+     *
      * @deprecated see {@link LifeCycleContext#getStatus()} instead.
-     * */
+     */
     @Deprecated
     private RunStatus runStatus = RunStatus.READY;
 
     /**
      * Gets the layout.
-     * 
+     *
      * @return the layout
      */
     public Layout getLayout() {
@@ -89,9 +87,8 @@ public final class ConcurrentConfigurationContext {
 
     /**
      * Sets the layout.
-     * 
-     * @param layout
-     *            the new layout
+     *
+     * @param layout the new layout
      */
     public void setLayout(Layout layout) {
         this.layout = layout;
@@ -99,7 +96,7 @@ public final class ConcurrentConfigurationContext {
 
     /**
      * Gets the meta data.
-     * 
+     *
      * @return the meta data
      */
     public MetaData getMetaData() {
@@ -108,9 +105,8 @@ public final class ConcurrentConfigurationContext {
 
     /**
      * Sets the meta data.
-     * 
-     * @param metaData
-     *            the new meta data
+     *
+     * @param metaData the new meta data
      */
     public void setMetaData(MetaData metaData) {
         this.metaData = metaData;
@@ -118,7 +114,7 @@ public final class ConcurrentConfigurationContext {
 
     /**
      * Gets the handlers.
-     * 
+     *
      * @return the handlers
      */
     public List<Handler> getHandlers() {
@@ -127,7 +123,7 @@ public final class ConcurrentConfigurationContext {
 
     /**
      * Gets the properties.
-     * 
+     *
      * @return the properties
      */
     public Map<String, String> getProperties() {
@@ -136,7 +132,7 @@ public final class ConcurrentConfigurationContext {
 
     /**
      * Gets the filters.
-     * 
+     *
      * @return the filters
      */
     public List<AuditEventFilter> getFilters() {
@@ -145,9 +141,8 @@ public final class ConcurrentConfigurationContext {
 
     /**
      * Adds the handler.
-     * 
-     * @param handler
-     *            the handler
+     *
+     * @param handler the handler
      */
     public void addHandler(Handler handler) {
         handlers.add(handler);
@@ -155,11 +150,9 @@ public final class ConcurrentConfigurationContext {
 
     /**
      * Adds the property.
-     * 
-     * @param key
-     *            the key
-     * @param value
-     *            the value
+     *
+     * @param key   the key
+     * @param value the value
      */
     public void addProperty(String key, String value) {
         properties.put(key, value);
@@ -167,9 +160,8 @@ public final class ConcurrentConfigurationContext {
 
     /**
      * Adds the filter.
-     * 
-     * @param filter
-     *            the filter
+     *
+     * @param filter the filter
      */
     public void addFilter(AuditEventFilter filter) {
         filters.add(filter);
@@ -177,7 +169,7 @@ public final class ConcurrentConfigurationContext {
 
     /**
      * Gets the annotation filters.
-     * 
+     *
      * @return the annotation filters
      */
     public List<AuditAnnotationFilter> getAnnotationFilters() {
@@ -186,9 +178,8 @@ public final class ConcurrentConfigurationContext {
 
     /**
      * Adds the annotation filter.
-     * 
-     * @param annotationFilter
-     *            the annotation filter
+     *
+     * @param annotationFilter the annotation filter
      */
     public void addAnnotationFilter(AuditAnnotationFilter annotationFilter) {
         annotationFilters.add(annotationFilter);
@@ -199,18 +190,18 @@ public final class ConcurrentConfigurationContext {
      *
      * @return true, if successful
      */
-    public boolean hasMetadata(){
-        if(Context.getConfigContext().getMetaData() == null){
+    public boolean hasMetadata() {
+        if (Context.getConfigContext().getMetaData() == null) {
             return false;
         }
         return true;
     }
-    
+
     /**
      * Gets the run status.
-     * 
+     *
      * @return the run status
-     * 
+     *
      * @deprecated see {@link LifeCycleContext#getStatus()} instead.
      */
     @Deprecated
@@ -220,9 +211,8 @@ public final class ConcurrentConfigurationContext {
 
     /**
      * Sets the run status.
-     * 
-     * @param runStatus
-     *            the new run status
+     *
+     * @param runStatus the new run status
      * @deprecated see {@link LifeCycleContext#getStatus()} instead.
      */
     @Deprecated

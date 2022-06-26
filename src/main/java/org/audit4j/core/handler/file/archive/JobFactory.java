@@ -21,17 +21,14 @@ package org.audit4j.core.handler.file.archive;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.audit4j.core.util.annotation.Beeta;
-
-@Beeta
 public class JobFactory {
 
-    public List<AbstractArchiveJob> getJobs(ArchiveEnv env){
+    public List<AbstractArchiveJob> getJobs(ArchiveEnv env) {
         List<AbstractArchiveJob> jobs = new ArrayList<>();
         for (ArchiveType type : env.getArchiveTypes()) {
             if (type.equals(ArchiveType.LOCAL)) {
                 jobs.add(new FileArchiveJob());
-            } else if(type.equals(ArchiveType.FTP)){
+            } else if (type.equals(ArchiveType.FTP)) {
                 jobs.add(new FTPArchiveJob());
             }
         }

@@ -22,23 +22,19 @@ import java.text.NumberFormat;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.audit4j.core.util.annotation.NotThreadSafe;
-
 /**
  * Simple stop watch, allowing for timing of a number of tasks, exposing total
- * running time and running time for each named task.
- * 
+ * running time and running time for each named task. Not thread safe.
+ *
  * @author <a href="mailto:janith3000@gmail.com">Janith Bandara</a>
- * 
+ *
  * @since 2.3.0
  */
-@NotThreadSafe("Not thread safe")
 public class StopWatch {
 
     /**
-     * Identifier of this stop watch. Handy when we have output from multiple
-     * stop watches and need to distinguish between them in log or console
-     * output.
+     * Identifier of this stop watch. Handy when we have output from multiple stop
+     * watches and need to distinguish between them in log or console output.
      */
     private final String id;
 
@@ -49,9 +45,9 @@ public class StopWatch {
     private final List<TaskInfo> taskList = new LinkedList<TaskInfo>();
 
     /** Start time of the current task. */
-    
+
     private long startTime;
-    
+
     /** The start time millis. */
     private long startTimeMillis;
 
@@ -69,10 +65,10 @@ public class StopWatch {
 
     /** The total time. */
     private long totalTime;
-    
+
     /** Total running time. */
     private long totalTimeMillis;
-    
+
     /**
      * Construct a new stop watch. Does not start any task.
      */
@@ -82,33 +78,30 @@ public class StopWatch {
 
     /**
      * Construct a new stop watch with the given id. Does not start any task.
-     * 
-     * @param id
-     *            identifier for this stop watch. Handy when we have output from
-     *            multiple stop watches and need to distinguish between them.
+     *
+     * @param id identifier for this stop watch. Handy when we have output from
+     *           multiple stop watches and need to distinguish between them.
      */
     public StopWatch(String id) {
         this.id = id;
     }
 
     /**
-     * Determine whether the TaskInfo array is built over time. Set this to
-     * "false" when using a StopWatch for millions of intervals, or the task
-     * info structure will consume excessive memory. Default is "true".
-     * 
-     * @param keepTaskList
-     *            the new keep task list
+     * Determine whether the TaskInfo array is built over time. Set this to "false"
+     * when using a StopWatch for millions of intervals, or the task info structure
+     * will consume excessive memory. Default is "true".
+     *
+     * @param keepTaskList the new keep task list
      */
     public void setKeepTaskList(boolean keepTaskList) {
         this.keepTaskList = keepTaskList;
     }
 
     /**
-     * Start an unnamed task. The results are undefined if {@link #stop()} or
-     * timing methods are called without invoking this method.
-     * 
-     * @throws IllegalStateException
-     *             the illegal state exception
+     * Start an unnamed task. The results are undefined if {@link #stop()} or timing
+     * methods are called without invoking this method.
+     *
+     * @throws IllegalStateException the illegal state exception
      * @see #stop()
      */
     public void start() throws IllegalStateException {
@@ -116,13 +109,11 @@ public class StopWatch {
     }
 
     /**
-     * Start a named task. The results are undefined if {@link #stop()} or
-     * timing methods are called without invoking this method.
-     * 
-     * @param taskName
-     *            the name of the task to start
-     * @throws IllegalStateException
-     *             the illegal state exception
+     * Start a named task. The results are undefined if {@link #stop()} or timing
+     * methods are called without invoking this method.
+     *
+     * @param taskName the name of the task to start
+     * @throws IllegalStateException the illegal state exception
      * @see #stop()
      */
     public void start(String taskName) throws IllegalStateException {
@@ -148,11 +139,11 @@ public class StopWatch {
     }
 
     /**
-     * Stop the current task. The results are undefined if timing methods are
-     * called without invoking at least one pair {@link #start()} /
-     * 
-     * @throws IllegalStateException
-     *             the illegal state exception {@link #stop()} methods.
+     * Stop the current task. The results are undefined if timing methods are called
+     * without invoking at least one pair {@link #start()} /
+     *
+     * @throws IllegalStateException the illegal state exception {@link #stop()}
+     *                               methods.
      * @see #start()
      */
     public void stop() throws IllegalStateException {
@@ -161,7 +152,7 @@ public class StopWatch {
         }
         long lastTime = System.nanoTime() - this.startTime;
         this.totalTime += lastTime;
-        
+
         long lastTimeMillis = System.currentTimeMillis() - this.startTimeMillis;
         this.totalTimeMillis += lastTimeMillis;
 
@@ -176,7 +167,7 @@ public class StopWatch {
 
     /**
      * Return whether the stop watch is currently running.
-     * 
+     *
      * @return true, if is running
      */
     public boolean isRunning() {
@@ -185,10 +176,9 @@ public class StopWatch {
 
     /**
      * Return the time taken by the last task.
-     * 
+     *
      * @return the last task time millis
-     * @throws IllegalStateException
-     *             the illegal state exception
+     * @throws IllegalStateException the illegal state exception
      */
     public long getLastTaskTime() throws IllegalStateException {
         if (this.lastTaskInfo == null) {
@@ -196,13 +186,12 @@ public class StopWatch {
         }
         return this.lastTaskInfo.getTime();
     }
-    
+
     /**
      * Return the time taken by the last task.
-     * 
+     *
      * @return the last task time millis
-     * @throws IllegalStateException
-     *             the illegal state exception
+     * @throws IllegalStateException the illegal state exception
      */
     public long getLastTaskTimeMillis() throws IllegalStateException {
         if (this.lastTaskInfo == null) {
@@ -213,10 +202,9 @@ public class StopWatch {
 
     /**
      * Return the name of the last task.
-     * 
+     *
      * @return the last task name
-     * @throws IllegalStateException
-     *             the illegal state exception
+     * @throws IllegalStateException the illegal state exception
      */
     public String getLastTaskName() throws IllegalStateException {
         if (this.lastTaskInfo == null) {
@@ -227,10 +215,9 @@ public class StopWatch {
 
     /**
      * Return the last task as a TaskInfo object.
-     * 
+     *
      * @return the last task info
-     * @throws IllegalStateException
-     *             the illegal state exception
+     * @throws IllegalStateException the illegal state exception
      */
     public TaskInfo getLastTaskInfo() throws IllegalStateException {
         if (this.lastTaskInfo == null) {
@@ -245,7 +232,7 @@ public class StopWatch {
 
     /**
      * Return the total time in milliseconds for all tasks.
-     * 
+     *
      * @return the total time millis
      */
     public long getTotalTimeMillis() {
@@ -254,7 +241,7 @@ public class StopWatch {
 
     /**
      * Return the total time in seconds for all tasks.
-     * 
+     *
      * @return the total time seconds
      */
     public double getTotalTimeSeconds() {
@@ -263,7 +250,7 @@ public class StopWatch {
 
     /**
      * Return the number of tasks timed.
-     * 
+     *
      * @return the task count
      */
     public int getTaskCount() {
@@ -272,7 +259,7 @@ public class StopWatch {
 
     /**
      * Return an array of the data for tasks performed.
-     * 
+     *
      * @return the task info
      */
     public TaskInfo[] getTaskInfo() {
@@ -284,7 +271,7 @@ public class StopWatch {
 
     /**
      * Return a short description of the total running time.
-     * 
+     *
      * @return the string
      */
     public String shortSummary() {
@@ -294,7 +281,7 @@ public class StopWatch {
     /**
      * Return a string with a table describing all tasks performed. For custom
      * reporting, call getTaskInfo() and use the task info directly.
-     * 
+     *
      * @return the string
      */
     public String prettyPrint() {
@@ -324,7 +311,7 @@ public class StopWatch {
     /**
      * Return an informative string describing all tasks performed For custom
      * reporting, call {@code getTaskInfo()} and use the task info directly.
-     * 
+     *
      * @return the string
      */
     @Override
@@ -344,7 +331,7 @@ public class StopWatch {
 
     /**
      * Inner class to hold data about one task executed within the stop watch.
-     * 
+     *
      * @author <a href="mailto:janith3000@gmail.com">Janith Bandara</a>
      */
     public static final class TaskInfo {
@@ -354,16 +341,16 @@ public class StopWatch {
 
         /** The time millis. */
         private final long timeMillis;
-        
+
         /** The time. */
         private final long time;
 
         /**
          * Instantiates a new task info.
          *
-         * @param taskName the task name
+         * @param taskName   the task name
          * @param timeMillis the time millis
-         * @param time the time
+         * @param time       the time
          */
         TaskInfo(String taskName, long timeMillis, long time) {
             this.taskName = taskName;
@@ -373,7 +360,7 @@ public class StopWatch {
 
         /**
          * Return the name of this task.
-         * 
+         *
          * @return the task name
          */
         public String getTaskName() {
@@ -391,7 +378,7 @@ public class StopWatch {
 
         /**
          * Return the time in milliseconds this task took.
-         * 
+         *
          * @return the time millis
          */
         public long getTimeMillis() {
@@ -400,7 +387,7 @@ public class StopWatch {
 
         /**
          * Return the time in seconds this task took.
-         * 
+         *
          * @return the time seconds
          */
         public double getTimeSeconds() {
