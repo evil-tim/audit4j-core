@@ -88,7 +88,7 @@ public class DefaultAnnotationTransformer implements AnnotationTransformer<Audit
             fields.addAll(getFieldFromResult(annotationEvent.getMethod(), annotationEvent.getMethodCallResult()));
             fields.addAll(getFieldFromThrowable(annotationEvent.getMethodCallThrowable()));
             if (annotationEvent.getElapsedTime() >= 0) {
-                fields.add(new Field(FIELD_ELAPSED_TIME, String.valueOf(annotationEvent.getElapsedTime())));
+                fields.add(new Field(FIELD_ELAPSED_TIME, String.valueOf(annotationEvent.getElapsedTime()), Long.class.getName()));
             }
             event.setFields(fields);
 
