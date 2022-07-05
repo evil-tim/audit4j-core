@@ -20,9 +20,9 @@ package org.audit4j.core;
 
 /**
  * The Class CoreConstants.
- * 
+ *
  * @author <a href="mailto:janith3000@gmail.com">Janith Bandara</a>
- * 
+ *
  * @since 1.0.0
  */
 public final class CoreConstants {
@@ -31,7 +31,7 @@ public final class CoreConstants {
     public static final String APP_NAME = "Audit4j";
 
     /** The Constant RELEASE_VERSION. */
-    public static final String RELEASE_VERSION = "2.5.0";
+    public static final String RELEASE_VERSION = "2.6.0";
 
     /** The Constant RELEASE_DATE. */
     public static final String RELEASE_DATE = "2015-11-01T12:40:21.077Z";
@@ -73,7 +73,7 @@ public final class CoreConstants {
     public static final String DEFAULT_DATE_FORMAT = "MM/dd/yyyy HH:mm:ss";
 
     public static final String DEFAULT = "default";
-    
+
     /** The Constant COLON_CHAR. */
     public static final char COLON_CHAR = ':';
 
@@ -133,12 +133,12 @@ public final class CoreConstants {
 
     /** The Constant NEW_LINE. */
     public static final String NEW_LINE = "\n";
-    
+
     public static final char DOLLAR_CHAR = '$';
 
     /** The Constant NULL. */
     public static final String NULL = "null";
-    
+
     /** The Constant EMPTY. */
     public static final String EMPTY = "<empty>";
 
@@ -147,9 +147,9 @@ public final class CoreConstants {
 
     /** The Constant ENCODE_UTF8. */
     public static final String ENCODE_UTF8 = "UTF-8";
-    
-    private CoreConstants(){
-    	
+
+    private CoreConstants() {
+
     }
 
 }
